@@ -14,12 +14,24 @@ r = Jari-jari katrol
 α = Percepatan sudut
 a = Percepatan linear
 
-Ditanya = Massa katrol (m)?
+Ditanya = Massa katrol (kg)?
 
-Input = 
+Input = a = 25.5 ; α = 250.5 ; τ = 6
 
 Proses = 
+1. Mencari jari-jari katrol 
+2. Mencari momen inersia
+3. Mencari massa katrol
 
-Output = 
+Output = Massa katrol (kg)
 
 '''
+a = float(input('Masukkan percepatan linear = '))
+b = float(input('Masukkan percepatan sudut = '))
+c = float(input('Masukkan momen gaya katrol = '))
+
+r = a/b
+I = c/b
+m = I/((2/5)*(r**2))
+
+print(f'Jadi massa katrol adalah %.1f' %(m), 'kg')
