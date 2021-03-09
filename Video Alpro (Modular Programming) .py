@@ -51,6 +51,7 @@ def invalid():
 
 def belanja():
     while True:
+        print('*'*100)
         print('Silahkan pilih: \n 1. Menambahkan barang yang akan di beli \n 2. Menghapus barang dari daftar belanja \n 3. Menampilkan daftar belanja \n 4. Exit')
         a = int(input('Masukkan pilihan anda: '))
         if a == 1:
