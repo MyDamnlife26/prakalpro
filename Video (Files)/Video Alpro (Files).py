@@ -11,3 +11,4 @@ Proses:
 
 Output: 
 '''
+a = open("")
