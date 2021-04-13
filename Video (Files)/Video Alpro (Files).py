@@ -20,10 +20,11 @@ Output:
 #     c.write(i)
 
 filename = input("nama file: ")
-handle = open(filename, "r")
+handle1 = open(filename, "r")
 c = 0
 a = []
 b = []
+
 # for line in handle:
 #     if line.startswith("Subject:"):
 #         c += 1
@@ -31,18 +32,32 @@ b = []
 #         print(line)
 # print("Jumlah: ",c)
 
+
+
 # for i in handle:
-#     i = i.split(" ")
+#     i = i.split()
 #     for j in i:
 #         print(j[-3:])
-#         if j[-3:] == "edu" or "org":
+#         if j[-4:] == ".edu" or ".org":
 #             a.append(j)
 #             c += 1
-#         elif j[-2:] == "za" or "uk":
+#         elif j[-3:] == ".za" or ".uk":
 #             a.append(j)
 #             c += 1
 
-for i in handle:
+
+
+# while True:
+#     print("""Selamat datang di Kuis Dadakan
+# Silahkan pilih mode soal:
+# 1. Easy
+# 2. Medium
+# 3. Hard""")
+#     masuk1 = int(input("Silahkan masukan pilihan: "))
+
+
+
+for i in handle1:
     i = i.split("||")
     for j in i:
         if c % 2 == 0:
@@ -53,16 +68,26 @@ for i in handle:
             j = j.strip()
             b.append(j)
             c += 1
-print(a)
-print(b)
+# print(a)
+# print(b)
 
-c = 0
+handle2 = open("hasil.txt", "w")
+
+c = 1
 for i in a:
-    print(a[c])
-    inp = input("Masukkan jawaban: ")
-    if inp == b[c]:
-        print("Jawaban benar!")
-        c += 1
-    elif inp != b[c]:
-        print("Jawaban salah!")
-        c += 1
+    try:
+        print(f"{c}. {a[c]}")
+        inp = input("\tMasukkan jawaban: ")
+        if inp == b[c]:
+            print("Jawaban benar!")
+            handle2.write(f"{c}. Jawaban benar\n")
+            c += 1
+        elif inp != b[c]:
+            print("Jawaban salah!")
+            handle2.write(f"{c}. Jawaban salah\n")
+            c += 1
+    except:
+        print("Sudah selesai, terimakasih")
+
+handle1.close()
+handle2.close()
