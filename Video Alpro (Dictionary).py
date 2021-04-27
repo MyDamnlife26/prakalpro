@@ -29,21 +29,24 @@ output:
 '''
 masukData = dict()
 while True:
-    print("""------------------------------------
-1. Input Data
-2. Lihat Data
-3. Hapus Data
+    print("-"*50)
+    print("Data pengecekan kesehatan murid")
+    print("""Silahkan pilih:
+1. Input data
+2. Lihat data
+3. Hapus data
 4. Keluar""")
     inp = int(input("Masukkan pilihan: "))
     try:
+        print("-"*50)
         if inp == 1:
-            jml = int(input("Masukkan jumlah data yang akan dimasukkan: "))
+            jml = int(input("Masukkan jumlah data: "))
             for i in range(jml):
-                nama = input("Masukkan nama siswa/siswi: ")
+                nama = input("Masukkan nama: ")
                 nama = nama.title()
-                kelas = input("Masukkan kelas siswa/siswi: ")
-                berat = input("Masukkan berat siswa/siswi: ")
-                tinggi = input("Masukkan tinggi siswa/siswi: ")
+                kelas = input("Masukkan kelas: ")
+                berat = input("Masukkan berat: ")
+                tinggi = input("Masukkan tinggi: ")
                 masukData[nama] = kelas, berat, tinggi
                 print("-"*50)
         elif inp == 2:
@@ -51,8 +54,7 @@ while True:
             print("------------------------- Data Siswa -------------------------")
             for i in masukData:
                 a = masukData[i]
-                print(
-                    f"{c}.\tNama: {i}\t Kelas: {a[0]}\t Berat: {a[1]}\t Tinggi: {a[2]}")
+                print(f"{c}.\t Nama: {i}\t Kelas: {a[0]}\t Berat: {a[1]}\t Tinggi: {a[2]}\t")
                 c += 1
         elif inp == 3:
             nama = input("Masukkan data yang ingin dihapus: ")
@@ -60,15 +62,11 @@ while True:
             for i in range(len(masukData)):
                 a = list(masukData.keys())
                 b = a[i]
-                if nama == b:
+                if b == nama:
                     del masukData[nama]
-                    print("Data berhasil dihapus.")
-                else:
-                    print("Data tidak berada dalam tabel.")
+                    print("Berhasil dihapus")
         elif inp == 4:
             print("Selamat tinggal...")
             break
-        else:
-            print("Input non-valid")
     except:
         print()
